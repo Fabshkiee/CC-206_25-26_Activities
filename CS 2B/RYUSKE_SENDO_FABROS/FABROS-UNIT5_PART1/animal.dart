@@ -14,4 +14,15 @@ class Animal {
       print('$_name can\'t walk');
     }
   }
+
+  String displayInfo() {
+    return '''
+$_name's information
+
+    Name: $_name
+    Kingdom: $_kingdom
+    Date of Birth: $_dob
+    Number of Legs: $_numLegs
+    ''';
+  }
 }
