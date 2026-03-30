@@ -16,4 +16,27 @@ void main() {
     animal.walk('North');
     print('-------------------');
   }
+
+  List<Pet> PET_HOME = [
+    Pet('Velociraptor', 'Animalia', '2021-01-01', 2, 'Snuggles'),
+    Pet('Megalodon', 'Animalia', '2022-05-05', 0, 'Cupcake'),
+    Pet.noNickname('Tarantula', 'Animalia', '2023-10-10', 8),
+  ];
+
+  print('\n\n--- PET HOME ---');
+
+  // Decrease the kindness value below 0
+  print('\nInteracting with Snuggles:');
+  PET_HOME[0].kick(30);
+  PET_HOME[0].kick(30); // 30 - 30 - 30 = -30
+  PET_HOME[0].pet(30); // fail
+
+  // Increase the kindness value above 1000.
+  print('\nInteracting with Cupcake:');
+  PET_HOME[1].feed(1500); // 30 + 1500 = 1530
+
+  print('\nFinal pet status check:');
+  for (var pet in PET_HOME) {
+    print(pet.displayInfo());
+  }
 }
