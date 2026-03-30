@@ -9,7 +9,7 @@ class Pet extends Animal {
     : _kindness = 30,
       super(name, kingdom, dob, numLegs);
 
-  // Constructor excluding nickname
+  // 9. concept: Named Constructors
   Pet.noNickname(String name, String kingdom, String dob, int numLegs)
     : _nickname = "Unnamed",
       super(name, kingdom, dob, numLegs);
@@ -34,5 +34,13 @@ class Pet extends Animal {
   void feed(int val) {
     _kindness += val;
     print('$_nickname was fed! kindness increased by $val.');
+  }
+
+  @override
+  String displayInfo() {
+    return super.displayInfo() + '''
+    Nickname: $_nickname
+    Kindness: $_kindness
+    ''';
   }
 }

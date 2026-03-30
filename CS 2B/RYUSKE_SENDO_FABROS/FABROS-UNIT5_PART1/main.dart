@@ -1,7 +1,10 @@
 import 'Animal.dart';
 import 'pet.dart';
 
+// 1. concept: Entry point
 void main() {
+  // 2. concept: Data Types
+  // 3. concept: Lists and Arrays
   List<Animal> ZOO = [
     Animal('Capybara', 'Animalia', '2015-05-10', 4),
     Animal('T-Rex', 'Animalia', '2018-03-22', 2),
@@ -11,6 +14,7 @@ void main() {
   ];
 
   print('--- ZOO ANIMALS ---');
+  // 5. concept: Looping
   for (var animal in ZOO) {
     print(animal.displayInfo());
     animal.walk('North');
