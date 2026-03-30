@@ -4,8 +4,15 @@ class Pet extends Animal {
   String _nickname;
   int _kindness = 0;
 
+  // Constructor requiring nickname (sets kindness to positive value)
   Pet(String name, String kingdom, String dob, int numLegs, this._nickname)
-    : super(name, kingdom, dob, numLegs);
+    : _kindness = 30,
+      super(name, kingdom, dob, numLegs);
+
+  // Constructor excluding nickname
+  Pet.noNickname(String name, String kingdom, String dob, int numLegs)
+    : _nickname = "Unnamed",
+      super(name, kingdom, dob, numLegs);
 
   // kick pet method
   void kick(int val) {
