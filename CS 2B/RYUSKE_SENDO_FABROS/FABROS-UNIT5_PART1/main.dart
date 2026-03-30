@@ -9,4 +9,11 @@ void main() {
     Animal('Dodo', 'Animalia', '2010-11-25', 2),
     Animal('Blobfish', 'Animalia', '2019-01-12', 0),
   ];
+
+  print('--- ZOO ANIMALS ---');
+  for (var animal in ZOO) {
+    print(animal.displayInfo());
+    animal.walk('North');
+    print('-------------------');
+  }
 }
