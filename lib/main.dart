@@ -57,68 +57,83 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20),
-          child: Row(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Profile Section
-              const SizedBox(height: 10),
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: SkunkColors.whiteGray.withOpacity(0.2),
-                    width: 4,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
-                      blurRadius: 15,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
-                ),
-                child: const CircleAvatar(
-                  radius: 60,
-                  backgroundColor: SkunkColors.darkGray,
-                  child: Text(
-                    'R',
-                    style: TextStyle(
-                      fontSize: 48,
-                      color: SkunkColors.whiteGray,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 14),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Ryuske Fabros',
-                    style: GoogleFonts.poppins(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: SkunkColors.whiteGray,
+                  // Profile Section
+                  const SizedBox(height: 10),
+                  Container(
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: SkunkColors.whiteGray.withOpacity(0.2),
+                        width: 4,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          blurRadius: 15,
+                          offset: const Offset(0, 8),
+                        ),
+                      ],
                     ),
-                    textAlign: TextAlign.left,
+                    child: const CircleAvatar(
+                      radius: 60,
+                      backgroundColor: SkunkColors.darkGray,
+                      child: Text(
+                        'R',
+                        style: TextStyle(
+                          fontSize: 48,
+                          color: SkunkColors.whiteGray,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                  Text(
-                    'Full Time Skunk',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: SkunkColors.lightGray,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    textAlign: TextAlign.left,
+                  const SizedBox(width: 14),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Ryuske Fabros',
+                        style: GoogleFonts.poppins(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: SkunkColors.whiteGray,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      Text(
+                        'Full Time Skunk',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: SkunkColors.lightGray,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
                   ),
                 ],
+              ),
+              Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildInfoRow(Icons.email, 'Email', 'placeholdermuna'),
+                  ],
+                ),
               ),
             ],
           ),
         ),
       ),
+
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
@@ -130,4 +145,36 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+//helper
+Widget _buildInfoRow(IconData icon, String title, String description) {
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(icon, color: SkunkColors.whiteGray, size: 24),
+      const SizedBox(width: 12),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: SkunkColors.whiteGray,
+            ),
+          ),
+          Text(
+            description,
+            style: GoogleFonts.poppins(
+              fontSize: 14,
+              color: SkunkColors.lightGray,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
 }
