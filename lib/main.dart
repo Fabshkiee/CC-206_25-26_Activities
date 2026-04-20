@@ -1,6 +1,7 @@
 //flutter portfolio
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'pet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -124,6 +125,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       'West Visayas State University',
                     ),
                     _buildInfoRow(
+                      Icons.school,
+                      'Course',
+                      'BS Computer Science',
+                    ),
+                    _buildInfoRow(
                       Icons.local_activity,
                       'Hobbies',
                       'Eating, Gaming, Gundam, Programming',
@@ -172,6 +178,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       bottomNavigationBar: BottomNavigationBar(
+        // Move the onTap logic here
+        onTap: (int index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const PetPage()),
+            );
+          }
+        },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           BottomNavigationBarItem(icon: Icon(Icons.pets), label: 'Pet'),
