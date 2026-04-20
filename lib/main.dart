@@ -20,8 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const MyHomePage(title: 'Ryuske\'s Skunk Portfolio'),
+      debugShowCheckedModeBanner: true,
       title: 'Portfolio Page',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+      ),
+      home: const MyHomePage(title: 'Ryuske\'s Skunk Portfolio'),
     );
   }
 }
@@ -47,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(
           widget.title,
           //google font
-          style: GoogleFonts.poppins(
+          style: const TextStyle(
             color: SkunkColors.whiteGray,
             fontWeight: FontWeight.w500,
             fontSize: 18,
@@ -74,13 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: SkunkColors.whiteGray.withOpacity(0.2),
                         width: 4,
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
-                          blurRadius: 15,
-                          offset: const Offset(0, 8),
-                        ),
-                      ],
                     ),
                     child: CircleAvatar(
                       radius: 60,
@@ -93,8 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Ryuske Fabros',
-                        style: GoogleFonts.poppins(
+                        'Ryuske Sendo',
+                        style: const TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
                           color: SkunkColors.whiteGray,
@@ -103,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       Text(
                         'Full Time Skunk',
-                        style: GoogleFonts.poppins(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: SkunkColors.lightGray,
                           fontWeight: FontWeight.w400,
@@ -114,6 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              const SizedBox(height: 20),
               Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,7 +144,7 @@ Widget _buildInfoRow(IconData icon, String title, String description) {
   return Container(
     margin: const EdgeInsets.symmetric(vertical: 6),
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-    width: 250,
+    width: 400,
     decoration: BoxDecoration(
       color: SkunkColors.darkGray,
       borderRadius: BorderRadius.circular(12),
@@ -153,7 +152,7 @@ Widget _buildInfoRow(IconData icon, String title, String description) {
     ),
     child: Row(
       children: [
-        Icon(icon, color: SkunkColors.lightGray, size: 20),
+        Icon(icon, color: SkunkColors.lightGray, size: 30),
         const SizedBox(width: 16),
         Expanded(
           child: Column(
@@ -162,7 +161,7 @@ Widget _buildInfoRow(IconData icon, String title, String description) {
             children: [
               Text(
                 title.toUpperCase(),
-                style: GoogleFonts.poppins(
+                style: const TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
                   color: SkunkColors.mediumGray,
@@ -171,7 +170,7 @@ Widget _buildInfoRow(IconData icon, String title, String description) {
               ),
               Text(
                 description,
-                style: GoogleFonts.poppins(
+                style: const TextStyle(
                   fontSize: 14,
                   color: SkunkColors.whiteGray,
                   fontWeight: FontWeight.w400,
