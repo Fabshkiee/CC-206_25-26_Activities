@@ -11,7 +11,7 @@ class SkunkColors {
   static const Color lightGray = Color(0xFFA7A2A9);
   static const Color whiteGray = Color(0xFFF4F7F5);
   static const Color mediumGray = Color(0xFF575A5E);
-  static const Color darkGray = Color(0xFF222823);
+  static const Color darkGray = Color(0xFF1E2124);
 }
 
 class MyApp extends StatelessWidget {
@@ -82,17 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
-                    child: const CircleAvatar(
+                    child: CircleAvatar(
                       radius: 60,
                       backgroundColor: SkunkColors.darkGray,
-                      child: Text(
-                        'R',
-                        style: TextStyle(
-                          fontSize: 48,
-                          color: SkunkColors.whiteGray,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      backgroundImage: AssetImage('assets/profile.png'),
                     ),
                   ),
                   const SizedBox(width: 14),
@@ -149,32 +142,46 @@ class _MyHomePageState extends State<MyHomePage> {
 
 //helper
 Widget _buildInfoRow(IconData icon, String title, String description) {
-  return Row(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Icon(icon, color: SkunkColors.whiteGray, size: 24),
-      const SizedBox(width: 12),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: GoogleFonts.poppins(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: SkunkColors.whiteGray,
-            ),
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 6),
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+    width: 250,
+    decoration: BoxDecoration(
+      color: SkunkColors.darkGray,
+      borderRadius: BorderRadius.circular(12),
+      border: Border.all(color: SkunkColors.whiteGray.withOpacity(0.05)),
+    ),
+    child: Row(
+      children: [
+        Icon(icon, color: SkunkColors.lightGray, size: 20),
+        const SizedBox(width: 16),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                title.toUpperCase(),
+                style: GoogleFonts.poppins(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w700,
+                  color: SkunkColors.mediumGray,
+                  letterSpacing: 1.5,
+                ),
+              ),
+              Text(
+                description,
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  color: SkunkColors.whiteGray,
+                  fontWeight: FontWeight.w400,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           ),
-          Text(
-            description,
-            style: GoogleFonts.poppins(
-              fontSize: 14,
-              color: SkunkColors.lightGray,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ],
-      ),
-    ],
+        ),
+      ],
+    ),
   );
 }
