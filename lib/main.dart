@@ -117,7 +117,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildInfoRow(Icons.email, 'Email', 'placeholdermuna'),
+                    _buildInfoRow(Icons.email, 'Email', 'ryuskesendo@pogi.com'),
+                    _buildInfoRow(
+                      Icons.school,
+                      'School',
+                      'West Visayas State University',
+                    ),
+                    _buildInfoRow(
+                      Icons.local_activity,
+                      'Hobbies',
+                      'Eating, Gaming, Gundam, Programming',
+                    ),
+                    _buildInfoRow(
+                      Icons.food_bank,
+                      'Favorite Foods',
+                      'J\'s Burger, Mountain Dew, Shawarma, Rice',
+                    ),
                   ],
                 ),
               ),
@@ -142,8 +157,8 @@ class _MyHomePageState extends State<MyHomePage> {
 //helper
 Widget _buildInfoRow(IconData icon, String title, String description) {
   return Container(
-    margin: const EdgeInsets.symmetric(vertical: 6),
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+    margin: const EdgeInsets.symmetric(vertical: 20),
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
     width: 400,
     decoration: BoxDecoration(
       color: SkunkColors.darkGray,
@@ -162,7 +177,7 @@ Widget _buildInfoRow(IconData icon, String title, String description) {
               Text(
                 title.toUpperCase(),
                 style: const TextStyle(
-                  fontSize: 10,
+                  fontSize: 12,
                   fontWeight: FontWeight.w700,
                   color: SkunkColors.mediumGray,
                   letterSpacing: 1.5,
