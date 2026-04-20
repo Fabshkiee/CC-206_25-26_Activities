@@ -1,5 +1,6 @@
 //flutter portfolio
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: const MyHomePage(title: 'Ryuske\'s Skunk Portfolio'),
       title: 'Portfolio Page',
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -38,10 +39,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.black, title: Text(widget.title)),
+      appBar: AppBar(
+        backgroundColor: SkunkColors.darkGray,
+        centerTitle: true,
+        title: Text(
+          widget.title,
+          //google font
+          style: GoogleFonts.poppins(
+            color: SkunkColors.whiteGray,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
-          mainAxisAlignment: .center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [const Text('You have pushed the button this many times:')],
         ),
       ),
