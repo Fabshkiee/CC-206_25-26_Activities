@@ -39,8 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: SkunkColors.black,
       appBar: AppBar(
-        backgroundColor: SkunkColors.darkGray,
+        backgroundColor: SkunkColors.mediumGray,
+        elevation: 0,
         centerTitle: true,
         title: Text(
           widget.title,
@@ -52,10 +54,69 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [const Text('You have pushed the button this many times:')],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Profile Section
+              const SizedBox(height: 10),
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: SkunkColors.whiteGray.withOpacity(0.2),
+                    width: 4,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      blurRadius: 15,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
+                ),
+                child: const CircleAvatar(
+                  radius: 60,
+                  backgroundColor: SkunkColors.darkGray,
+                  child: Text(
+                    'R',
+                    style: TextStyle(
+                      fontSize: 48,
+                      color: SkunkColors.whiteGray,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Ryuske Fabros',
+                    style: GoogleFonts.poppins(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: SkunkColors.whiteGray,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    'Full Time Skunk',
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      color: SkunkColors.lightGray,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
