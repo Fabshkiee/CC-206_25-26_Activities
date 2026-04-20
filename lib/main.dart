@@ -136,6 +136,36 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
+              SizedBox(height: 30),
+              SizedBox(
+                width: 250,
+                height: 250,
+                child: Image.asset('assets/whoisthis.png'),
+              ),
+              //Biography
+              Container(
+                width: 400,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 18,
+                ),
+                decoration: BoxDecoration(
+                  color: SkunkColors.darkGray,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: SkunkColors.whiteGray.withOpacity(0.05),
+                  ),
+                ),
+                child: Text(
+                  'I\'m a second year BSCS student studying at West Visayas State University. I am a fan of Gundam and watching films. When I asked a serious question on what animal represents me, someone answered Skunk. Therefore the theme of this profile is skunk themed. Regardless of the societal views on skunks, I think they are pretty cool. I hope you do too.',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: SkunkColors.whiteGray,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
             ],
           ),
         ),
