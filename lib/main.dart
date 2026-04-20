@@ -119,6 +119,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.pets), label: 'Pet'),
+        ],
+        backgroundColor: SkunkColors.mediumGray,
+        selectedItemColor: SkunkColors.whiteGray,
+        unselectedItemColor: SkunkColors.lightGray,
+      ),
     );
   }
 }
